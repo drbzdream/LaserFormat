@@ -7,7 +7,6 @@
     tools:context="com.example.titivoradac.laserformat.MainActivity">
 
 
-
     <EditText
         android:id="@+id/sign_up_national_id"
         android:layout_width="500px"
@@ -24,5 +23,7 @@
         android:text="Submit"
         tools:layout_editor_absoluteX="288dp"
         tools:layout_editor_absoluteY="51dp" />
+
+
 
 </LinearLayout>

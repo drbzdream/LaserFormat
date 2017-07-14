@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
         laserNationalNo.addTextChangedListener(new TextWatcher() {
 
-
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -93,8 +91,6 @@ public class MainActivity extends AppCompatActivity {
                             }else if(Character.isDigit(charAt_check) && i >= 2){
                                 System.out.println(charAt_check + " is a digit");
                                 check_amount++;
-                            }else {
-                                System.out.println(charAt_check + " error");
                             }
                         }
                         System.out.println("Check: "+ check_amount);
@@ -108,47 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-//        @Override
-//        public void detectFormat(){
-//            String first = laserNationText.substring(0, 2);  // gives "How ar"
-//            String second = laserNationText.substring(laserNationText.length() / 2);
-//        }
-
     }
 }
 
 
-
-/*
-
-public class HelloWorld{
-
-     public static void main(String []args){
-        String test = new String("r94-3338833-44");
-        String temp = test.replaceAll("-", "");
-
-        int check_amount = 0;
-
-        for (int i = 0; i < temp.length(); i++) {
-            char charAt_check = temp.charAt(i);
-            if (Character.isLetter(charAt_check) && i < 2) {
-                System.out.println(charAt_check + " is a alphabet");
-                check_amount++;
-            }else if(Character.isDigit(charAt_check) && i >= 2){
-                System.out.println(charAt_check + " is a digit");
-                check_amount++;
-            }else {
-                System.out.println(charAt_check + " error");
-            }
-        }
-        System.out.println("Check: "+ check_amount);
-
-        if(check_amount == 12) {
-            System.out.println("Avaliable!!!");
-        }else {
-            System.out.println("Not found!!!");
-        }
-        return ;
-     }
-}
- */
