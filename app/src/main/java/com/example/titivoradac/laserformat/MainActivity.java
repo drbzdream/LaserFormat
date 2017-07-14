@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view)
                     {
                         String test = laserNationalNo.getText().toString();
+                        String temp = test.replaceAll("-", "");
                         String laserFormat = "[a-zA-Z]{2}[0-9]-[0-9]{7}-[0-9]{2}";
 
                         if(test.matches(laserFormat)){
