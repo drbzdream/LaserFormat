@@ -8,13 +8,14 @@ import android.widget.TextView;
 import android.text.TextWatcher;
 import android.text.Editable;
 import android.widget.Toast;
+import android.view.View;
 
 
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText laserNationalNo;
-//    private Button submitLaserNationnalNo;
+    private Button submitLaserNationnalNo;
 //    private TextView successSubmitLaserNationNoToAPI;
 
     //we need to block the :afterTextChanges method to be called again after we just replaced the EditText text
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         laserNationalNo = (EditText) findViewById(R.id.sign_up_national_id);
-//        submitLaserNationnalNo = (Button) findViewById(R.id.button_submit);
+        submitLaserNationnalNo = (Button) findViewById(R.id.button_submit);
 //        successSubmitLaserNationNoToAPI = (TextView) findViewById(R.id.result_send_api);
 
         laserNationalNo.addTextChangedListener(new TextWatcher() {
@@ -73,6 +74,39 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        submitLaserNationnalNo.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        String test = laserNationalNo.getText().toString();
+                        String temp = test.replaceAll("-", "");
+
+                        int check_amount = 0;
+
+                        for (int i = 0; i < temp.length(); i++) {
+                            char charAt_check = temp.charAt(i);
+                            if (Character.isLetter(charAt_check) && i < 2) {
+                                System.out.println(charAt_check + " is a alphabet");
+                                check_amount++;
+                            }else if(Character.isDigit(charAt_check) && i >= 2){
+                                System.out.println(charAt_check + " is a digit");
+                                check_amount++;
+                            }else {
+                                System.out.println(charAt_check + " error");
+                            }
+                        }
+                        System.out.println("Check: "+ check_amount);
+
+                        if(check_amount == 12) {
+                            Toast.makeText(MainActivity.this, "Avaliable!!!", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(MainActivity.this, "Error!!!", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
 
 //        @Override
 //        public void detectFormat(){
