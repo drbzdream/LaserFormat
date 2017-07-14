@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 if (lasertextshow.length() > 3){
                     lasertextshow.insert(3, "-");
                 }
-
                 if (lasertextshow.length() > 11){
                     lasertextshow.insert(11, "-");
                 }
@@ -79,28 +78,13 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view)
                     {
                         String test = laserNationalNo.getText().toString();
-                        String temp = test.replaceAll("-", "");
+                        String laserFormat = "[a-zA-Z]{2}[0-9]-[0-9]{7}-[0-9]{2}";
 
-                        int check_amount = 0;
-
-                        for (int i = 0; i < temp.length(); i++) {
-                            char charAt_check = temp.charAt(i);
-                            if (Character.isLetter(charAt_check) && i < 2) {
-                                System.out.println(charAt_check + " is a alphabet");
-                                check_amount++;
-                            }else if(Character.isDigit(charAt_check) && i >= 2){
-                                System.out.println(charAt_check + " is a digit");
-                                check_amount++;
-                            }
-                        }
-                        System.out.println("Check: "+ check_amount);
-
-                        if(check_amount == 12) {
+                        if(test.matches(laserFormat)){
                             Toast.makeText(MainActivity.this, "Avaliable!!!", Toast.LENGTH_SHORT).show();
                         }else {
                             Toast.makeText(MainActivity.this, "Error!!!", Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 });
 
